@@ -1,5 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
     selector: 'app-navbar',
@@ -9,12 +10,16 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
+    isDesktopDevice: any;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(private deviceService:DeviceDetectorService,
+        public location: Location, 
+        private element : ElementRef) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
+        this.isDesktopDevice = this.deviceService.isDesktop();
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }

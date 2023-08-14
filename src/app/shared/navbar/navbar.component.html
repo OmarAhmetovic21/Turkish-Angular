@@ -3,11 +3,12 @@
       
         <div class="navbar-translate">
             <a class="navbar-brand" [routerLink]="['/index']" placement="bottom">
-                <img src="assets/img/apple-icon.svg.png" style="width: 30%; height: 20%;" alt="">
+                <img [ngClass]="isDesktopDevice ? 'desktop': 'mobile'" src="assets/img/apple-icon.svg.png" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar bar1"></span>
-                
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
             </button>
         </div>
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
