@@ -9,6 +9,14 @@ export class BasicelementsComponent implements OnInit {
     simpleSlider = 40;
     doubleSlider = [20, 60];
     state = true;
+    view = [];
+    saleData = [
+      { name: "2018", value: 75200000 },
+      { name: "2019", value: 74300000 },
+      { name: "2020", value: 28000000 },
+      { name: "2021", value: 44800000 },
+      { name: "2022", value: 71820000 }
+    ];
 
     tagItems = ['Minimal', 'Light', 'New', 'Friends'];
 
@@ -92,5 +100,9 @@ export class BasicelementsComponent implements OnInit {
     onDeSelectAll(items: any){
         console.log(items);
     }
+
+    onResize(event) {
+      this.view = [event.target.innerWidth / 1.35, 400];
+  }
 
 }

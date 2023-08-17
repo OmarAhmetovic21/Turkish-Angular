@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     isDesktopDevice: any;
 
-    constructor(private deviceService:DeviceDetectorService,
+    constructor(private deviceService: DeviceDetectorService,
         public location: Location, 
         private element : ElementRef) {
         this.sidebarVisible = false;

@@ -6,11 +6,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComponentsComponent } from './components/components.component';
 
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
+import { FleetComponent } from './components/fleet/fleet.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'index',                component: ComponentsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
+    { path: 'fleet',                component: FleetComponent },
 
 ];
 
