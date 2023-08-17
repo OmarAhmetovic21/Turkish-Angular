@@ -22,4 +22,11 @@ export class FleetComponent implements OnInit {
         this.isDesktopDevice = this.deviceService.isDesktop();
   }
 
+  ngOnDestroy(){
+    var navbar = document.getElementsByTagName('nav')[0];
+    navbar.classList.remove('navbar-transparent');
+    var body = document.getElementsByTagName('body')[0];
+    body.classList.remove('index-page');
+}
+
 }
