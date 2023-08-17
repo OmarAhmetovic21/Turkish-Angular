@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Rellax from 'rellax';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-fleet',
@@ -7,8 +8,9 @@ import * as Rellax from 'rellax';
   styleUrls: ['./fleet.component.scss']
 })
 export class FleetComponent implements OnInit {
+  isDesktopDevice: any;
 
-  constructor() { }
+  constructor(private deviceService: DeviceDetectorService) { }
 
   ngOnInit(): void {
     var rellaxHeader = new Rellax('.rellax-header');
@@ -17,6 +19,7 @@ export class FleetComponent implements OnInit {
         navbar.classList.add('navbar-transparent');
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('index-page');
+        this.isDesktopDevice = this.deviceService.isDesktop();
   }
 
 }
