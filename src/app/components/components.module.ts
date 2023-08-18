@@ -14,6 +14,7 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { FleetComponent } from './fleet/fleet.component';
+import { LoungesComponent } from './lounges/lounges.component';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { FleetComponent } from './fleet/fleet.component';
         NucleoiconsComponent,
         NotificationComponent,
         NgbdModalBasic,
-        FleetComponent
+        FleetComponent,
+        LoungesComponent
     ],
     exports:[ ComponentsComponent ]
 })
