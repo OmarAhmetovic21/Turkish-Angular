@@ -2,6 +2,7 @@ import { Component, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 import * as Rellax from 'rellax';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
     selector: 'app-components',
@@ -15,7 +16,7 @@ import * as Rellax from 'rellax';
 
 export class ComponentsComponent implements OnInit, OnDestroy {
     data : Date = new Date();
-
+    isDesktopDevice: any;
     page = 4;
     page1 = 5;
     page2 = 3;
@@ -32,7 +33,8 @@ export class ComponentsComponent implements OnInit, OnDestroy {
 
     state_icon_primary = true;
 
-    constructor( private renderer : Renderer2, config: NgbAccordionConfig) {
+    constructor( private deviceService: DeviceDetectorService,
+        private renderer : Renderer2, config: NgbAccordionConfig) {
         config.closeOthers = true;
         config.type = 'info';
     }
@@ -46,6 +48,7 @@ export class ComponentsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.isDesktopDevice = this.deviceService.isDesktop();
       var rellaxHeader = new Rellax('.rellax-header');
 
         var navbar = document.getElementsByTagName('nav')[0];

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-basicelements',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicelementsComponent implements OnInit {
     simpleSlider = 40;
+    isDesktopDevice: any;
     doubleSlider = [20, 60];
     state = true;
     view = [];
@@ -16,6 +18,14 @@ export class BasicelementsComponent implements OnInit {
       { name: "2020", value: 28000000 },
       { name: "2021", value: 44800000 },
       { name: "2022", value: 71820000 }
+    ];
+
+    flightData = [
+      { name: "2018", value: 460000},
+      { name: "2019", value: 480000},
+      { name: "2020", value: 250000},
+      { name: "2021", value: 350000},
+      { name: "2022", value: 400000}
     ];
 
     tagItems = ['Minimal', 'Light', 'New', 'Friends'];
@@ -31,9 +41,10 @@ export class BasicelementsComponent implements OnInit {
     focus;
     focus1;
 
-    constructor() { }
+    constructor(private deviceService: DeviceDetectorService) { }
 
     ngOnInit() {
+        this.isDesktopDevice = this.deviceService.isDesktop();
         this.dropdownList = [
                               {"id":1,"itemName":"Roman"},
                               {"id":2,"itemName":"Paris"},
@@ -100,9 +111,4 @@ export class BasicelementsComponent implements OnInit {
     onDeSelectAll(items: any){
         console.log(items);
     }
-
-    onResize(event) {
-      this.view = [event.target.innerWidth / 1.35, 400];
-  }
-
 }

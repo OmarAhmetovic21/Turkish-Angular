@@ -1,88 +1,67 @@
 <div class="section section-basic">
     <div class="container">
-      <h2 class="title">Turkish Airlines Statistics</h2>
-      
-      <div id="inputs">
-        
-      </div>
+      <h2 class="title" *ngIf="isDesktopDevice" >Turkish Airlines Statistics</h2>
+      <h3 class="title text-center" *ngIf="!isDesktopDevice" >Turkish Airlines Statistics</h3>
 
-      <div class="row" id="checkRadios">
-        <div class="col-sm-6 col-lg-3">
-            <p class="category">Checkboxes</p>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox">
-                    <span class="form-check-sign"></span>
-                    Unchecked
-                </label>
-            </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" checked>
-                    <span class="form-check-sign"></span>
-                    Checked
-                </label>
-            </div>
-            <div class="form-check disabled">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" disabled>
-                    <span class="form-check-sign"></span>
-                    Disabled Unchecked
-                </label>
-            </div>
-            <div class="form-check disabled">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" checked disabled>
-                    <span class="form-check-sign"></span>
-                    Disabled Checked
-                </label>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <p class="category">Radios</p>
-            <div class="form-check form-check-radio">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                    <span class="form-check-sign"></span>
-                    Radio is off
-                </label>
-            </div>
-            <div class="form-check form-check-radio">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2" checked>
-                    <span class="form-check-sign"></span>
-                    Radio is on
-                </label>
-            </div>
-            <div class="form-check form-check-radio disabled">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option3" disabled>
-                    <span class="form-check-sign"></span>
-                    Disabled radio is off
-                </label>
-            </div>
-            <div class="form-check form-check-radio disabled">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option4" disabled checked>
-                    <span class="form-check-sign"></span>
-                    Disabled radio is on
-                </label>
-            </div>
-        </div>
-          <div class="col-sm-6 col-lg-3">
-              <p class="category">Toggle Buttons</p>
-              <bSwitch
-                  [(ngModel)]="state">
-              </bSwitch>
-              <bSwitch> Toggle is off
-              </bSwitch>
-          </div>
-          <div class="col-sm-6 col-lg-3">
-              <p class="category">Sliders</p>
-              <nouislider class="slider" [min]="0" [max]="100" [step]="1" [(ngModel)]="simpleSlider" [tooltips]="true"></nouislider>
-              <br>
-              <nouislider class="slider slider-primary" [connect]="true" [min]="0" [max]="100" [step]="1" [(ngModel)]="doubleSlider" [tooltips]="true"></nouislider>
-          </div>
-      </div>
-    </div>
+      <h4 style="margin-top: 10%;">Passengers per year</h4>
+
+      <ngx-charts-bar-vertical *ngIf="isDesktopDevice"
+      [view]="[1000,400]"
+      [results]="saleData"
+      [xAxisLabel]="'Year'"
+      [legendTitle]="'Passengers per year'"
+      [yAxisLabel]="'Passengers'"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="true">
+     </ngx-charts-bar-vertical>
+
+     <ngx-charts-bar-vertical *ngIf="!isDesktopDevice"
+      [view]="[350,300]"
+      [results]="saleData"
+      [xAxisLabel]="'Year'"
+      [legendTitle]="'Passengers per year'"
+      [yAxisLabel]="'Passengers'"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="true">
+     </ngx-charts-bar-vertical>
+
+     <h4>Flights per year</h4>
+
+      <ngx-charts-bar-horizontal *ngIf="isDesktopDevice"
+      [view]="[1000,400]"
+      [results]="flightData"
+      [xAxisLabel]="'Flights'"
+      [legendTitle]="'Flights per year'"
+      [yAxisLabel]="'Year'"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="true">
+     </ngx-charts-bar-horizontal>
+
+     <ngx-charts-bar-horizontal *ngIf="!isDesktopDevice"
+      [view]="[350,300]"
+      [results]="flightData"
+      [xAxisLabel]="'Flights'"
+      [legendTitle]="'Flights per year'"
+      [yAxisLabel]="'Year'"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxis]="true"
+      [yAxis]="true"
+      [gradient]="true">
+     </ngx-charts-bar-horizontal>
+
+     </div>
 </div>

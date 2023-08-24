@@ -5,8 +5,11 @@
     </div>
       <div class="container">
           <div class="content-center brand">
-              <h1 class="h1-seo" style="color: black;"> <b>Welcome to Turkish Airlines</b></h1>
-              <h3 style="color: black;"><b>We fly to more countries than any other airline</b></h3>
+              <h1 *ngIf="isDesktopDevice" class="h1-seo" style="color: black;"> <b>Welcome to Turkish Airlines</b></h1>
+              <h3 *ngIf="isDesktopDevice" style="color: black;"><b>We fly to more countries than any other airline</b></h3>
+
+              <h2 *ngIf="!isDesktopDevice" class="h1-seo" style="color: black;"> <b>Welcome to Turkish Airlines</b></h2>
+              <h4 *ngIf="!isDesktopDevice" style="color: black;"><b>We fly to more countries than any other airline</b></h4>
           </div>
           
       </div>
@@ -15,9 +18,8 @@
   <div class="main" style="overflow-x: hidden;">
       <br> <br>
       <app-basicelements></app-basicelements>
-      <app-navigation></app-navigation>
       
-      <app-typography></app-typography>
+     
       
   </div>
   
